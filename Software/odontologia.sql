@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2019 a las 18:03:54
+-- Tiempo de generación: 11-01-2020 a las 13:27:40
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.11
 
@@ -56,6 +56,20 @@ CREATE TABLE `clientes` (
   `Direccion` varchar(40) NOT NULL,
   `Gmail` varchar(30) NOT NULL,
   `Fecha Nacimiento` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalle_reservas`
+--
+
+CREATE TABLE `detalle_reservas` (
+  `Num_Reserva` int(10) NOT NULL,
+  `Servicio` int(10) NOT NULL,
+  `Tratamiento` varchar(100) NOT NULL,
+  `Medicamento` varchar(100) NOT NULL,
+  `Instrucciones` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -131,6 +145,19 @@ CREATE TABLE `reservas` (
   `Asistente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `servicios`
+--
+
+CREATE TABLE `servicios` (
+  `Id` int(11) NOT NULL,
+  `Nombre` varchar(20) NOT NULL,
+  `Descripcion` varchar(50) NOT NULL,
+  `Precio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Índices para tablas volcadas
 --
@@ -146,6 +173,12 @@ ALTER TABLE `asistente`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`Id`);
+
+--
+-- Indices de la tabla `detalle_reservas`
+--
+ALTER TABLE `detalle_reservas`
+  ADD KEY `num_reserva` (`Num_Reserva`);
 
 --
 -- Indices de la tabla `herramientas`
@@ -181,6 +214,12 @@ ALTER TABLE `reservas`
   ADD KEY `id_cliente` (`Cliente`),
   ADD KEY `id_odontologo` (`Odontologo`),
   ADD KEY `id_asistente` (`Asistente`);
+
+--
+-- Indices de la tabla `servicios`
+--
+ALTER TABLE `servicios`
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -229,8 +268,20 @@ ALTER TABLE `reservas`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `servicios`
+--
+ALTER TABLE `servicios`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `detalle_reservas`
+--
+ALTER TABLE `detalle_reservas`
+  ADD CONSTRAINT `num_reserva` FOREIGN KEY (`Num_Reserva`) REFERENCES `reservas` (`Id`);
 
 --
 -- Filtros para la tabla `pedidos`

@@ -40,6 +40,7 @@ class Clientes(models.Model):
         db_table = 'clientes'
 
 
+
 class Herramientas(models.Model):
     codigo = models.AutoField(db_column='Codigo', primary_key=True)  # Field name made lowercase.
     nombre = models.CharField(db_column='Nombre', max_length=30)  # Field name made lowercase.
@@ -101,3 +102,24 @@ class Reservas(models.Model):
     class Meta:
         managed = False
         db_table = 'reservas'
+
+class Servicios(models.Model):
+    Id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
+    nombre = models.CharField(db_column='Nombre', max_length=30)  # Field name made lowercase.
+    descripcion = models.CharField(db_column='Descripcion', max_length=50)  # Field name made lowercase.
+    precio = models.FloatField(db_column='Precio')  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'herramientas'
+
+class Detalle_reservas(models.Model):
+    num_Reserva = models.ForeignKey(Reservas, models.DO_NOTHING, db_column='Id')
+    Id_servicio = models.ForeignKey(Servicios, models.DO_NOTHING, db_column='Id')  # Field name made lowercase.
+    tratamiento = models.CharField(db_column='Tratamiento', max_length=100)  # Field name made lowercase.
+    medicamento = models.CharField(db_column='Medicamento', max_length=100)  # Field name made lowercase.
+    instrucciones = models.CharField(db_column='Instrucciones', max_length=100)  # Field name made lowercase.
+    
+    class Meta:
+        managed = False
+        db_table = 'detalle_reservas'
