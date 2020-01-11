@@ -1,0 +1,13 @@
+.form-group::before{
+    font-family:"Font Awesome\ 5 Free";
+    position: absolute;
+    left: 28px;
+    padding-top:4px ;
+  }
+  
+  .form-group#redes::before{
+    content: "\f082";
+    content: "\f16d";
+    content: "\f081";
+    content: "\f232";
+  }

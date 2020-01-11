@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Mi primer Login</title>
+    <title>Login</title>
 
     <!--JQUERY-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../views/estilos.css">
+    <link rel="stylesheet" href="../views/estiloslogin.css">
   <title>login</title>
 
 </head>
@@ -44,18 +44,8 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="../home">Inicio </a>
+            <a class="nav-link" href="../views/home.html">Inicio </a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              iniciar sesion
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">registrarse</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">crear cuenta</a>
-            </div>
         </ul>
       </div>
     </nav>
@@ -65,7 +55,7 @@
       <div class="col-sm-9 main-section">
           <div class="modal-content">
               <div class="col-12 user-img">
-                  <img src="./imagenes/avatar1.png" th:src="@{/img/user.png}"/>
+                  <img src="../views/imagenes/User_Avatar_2.png" th:src="@{/img/user.png}"/>
               </div>
               <form class="col-12" th:action="@{/login}" method="get">
                   <div class="form-group" id="user-group">
@@ -75,16 +65,18 @@
                       <input type="password" class="form-control" placeholder="Contrasena" name="password"/>
                   </div>
                   <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+                  
               </form>
+              <a href="../views/registrar.html"><button class="btn btn-primary" >Registarse</button></a>
               <div class="col-12 forgot">
-                  <a href="#">Recordar contrasena?</a>
-              </div>
+                  <a href="#">Recordar contraseña?</a>
+              <!--</div>
               <div th:if="${param.error}" class="alert alert-danger" role="alert">
               Invalid username and password.
           </div>
           <div th:if="${param.logout}" class="alert alert-success" role="alert">
               You have been logged out.
-          </div>
+          </div>-->
           </div>
       </div>
   </div>

@@ -23,11 +23,26 @@ def odontologo(request): #tercera vista
     return HttpResponse(docum)    
 
 def citas(request): #cuarta vista 
-    views_cit=loader.get_template('odontologo.html')
+    views_cit=loader.get_template('citas.html')
     documen=views_cit.render()
     return HttpResponse(documen)  
 
 def fichas(request): #quinta vista 
-    views_fic=loader.get_template('odontologo.html')
+    views_fic=loader.get_template('fichas.html')
     documento=views_fic.render()
     return HttpResponse(documento)  
+
+def registar(request): #sexta vista 
+    views_reg=loader.get_template('registrar.html')
+    d=views_reg.render()
+    return HttpResponse(d)  
+    
+def nosotros(request): #septima vista 
+    views_nos=loader.get_template('nosotros.html')
+    dou=views_nos.render()
+    return HttpResponse(dou) 
+
+def servicios(request): #octaba vista 
+    views_ser=loader.get_template('servicios.html')
+    ser=views_ser.render()
+    return HttpResponse(ser) 
