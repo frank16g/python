@@ -1,0 +1,22 @@
+body{
+    font-family: 'Roboto',sans-serif;
+  }
+  h1,h2,h3,h4,h5,h6,p{
+    font-family: 'Roboto',sans-serif;
+  }
+  h1{
+    font-size: 2.5rem;
+    font-weight: 300;
+  }
+  h2{
+    font-size: 2rem;
+    font-weight: 300;
+  }
+  
+  fondo {
+      background: url('../views/imagenes/odontologos.jpg');
+      height: 100vh;
+      background-position: center;
+      background-size: cover;
+      background-color: blue;
+    }
